@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CodeForge - JavaScript Playground</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+<input type="checkbox" id="menu" hidden>
+<header class="nav">
+  <a class="logo" href="#top"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Code<b>Forge</b></a>
+  <div class="nav-r">
+    <select id="theme" aria-label="Theme"><option value="midnight">Midnight</option><option value="aurora">Aurora</option><option value="sunset">Sunset</option><option value="daylight">Daylight</option></select>
+    <div class="avatar" tabindex="0" aria-label="Profile">GC
+      <div class="drop"><b>Guest Coder</b><small>guest@codeforge.dev</small><a href="#play">My snippets</a><a href="#features">Settings</a></div>
+    </div>
+    <label for="menu" class="burger" aria-label="Menu"><span></span><span></span><span></span></label>
+  </div>
+</header>
+<nav class="drawer"><a href="#play">Playground</a><a href="#features">Features</a><a href="#about">About</a></nav>
+
+<main id="top">
+  <section class="hero">
+    <h1 class="grad">Run JavaScript. See why it works.</h1>
+    <p>Write code, answer its <code>prompt()</code> questions in a dialog, and read a plain-English walkthrough of every line.</p>
+    <a class="btn" href="#play">Start coding</a>
+  </section>
+
+  <section id="play" class="play">
+    <div class="card">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>main.js</span>
+        <div><button class="btn ghost" id="clear">Clear</button> <button class="btn" id="run">Run <kbd>Ctrl+Enter</kbd></button></div>
+      </div>
+      <div class="ed"><pre class="ln" id="ln"></pre>
+        <div class="wrap"><pre id="hl" aria-hidden="true"></pre>
+<textarea id="code" spellcheck="false" wrap="off" aria-label="Code editor">// Ask the user, then respond
+const name = prompt("What is your name?");
+const age = Number(prompt("How old are you?"));
+
+function greet(n) {
+  return `Hello, ${n}!`;
+}
+
+console.log(greet(name));
+if (age >= 18) {
+  console.log("You are an adult.");
+} else {
+  console.log("You are a minor.");
+}
+[1, 2, 3].map(x => x * 2).forEach(v => console.log(v));</textarea></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card"><div class="bar"><span>Output</span><small id="stat"></small></div><div id="out" class="out"></div></div>
+      <div class="card"><div class="bar"><span>How it works</span></div><div id="why" class="why"></div></div>
+    </div>
+  </section>
+
+  <section id="features" class="feat">
+    <div class="card"><span class="ico">❓</span><h3>Real prompt()</h3><p>Questions open in a dialog inside the page and your answer goes straight back to your code.</p></div>
+    <div class="card"><span class="ico">⚠️</span><h3>Errors that explain</h3><p>Syntax and runtime errors show in the output with the line number and a hint on how to fix them.</p></div>
+    <div class="card"><span class="ico">📖</span><h3>Line-by-line walkthrough</h3><p>Each statement is explained in order, with the key ideas it uses.</p></div>
+    <div class="card"><span class="ico">🎨</span><h3>Four themes</h3><p>Midnight, Aurora, Sunset and Daylight restyle the interface and the code colors.</p></div>
+  </section>
+</main>
+
+<div class="modal" id="pm"><div class="box"><p id="pq"></p><input id="pi" aria-label="Your answer"><div><button class="btn ghost" id="pc">Cancel</button><button class="btn" id="po">OK</button></div></div></div>
+<footer id="about">CodeForge runs your code in your own browser. Nothing is uploaded.</footer>
+<script src="script.js"></script>
+</body>
+</html>
